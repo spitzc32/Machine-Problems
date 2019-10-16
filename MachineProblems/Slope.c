@@ -4,7 +4,8 @@
 
 /* created by: spitzc32
    date: 10/16/19
-   
+   compiler: C11
+   prblem: Slope
    
 */
 int get_problem();
