@@ -38,7 +38,7 @@ int main()
         scanf("%d", &n);
   }
   
-  while ((n<2) || (n> 20)){
+  while ((m<2) || (m> 20)){
         puts("Out of Bounds. Enter the length of the room(between 2 & 20): ");
         scanf("%d", &m);
   }
