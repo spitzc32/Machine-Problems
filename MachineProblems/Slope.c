@@ -2,6 +2,11 @@
 #include<stdlib.h>
 #include<math.h>
 
+/* created by: spitzc32
+   date: 10/16/19
+   
+   
+*/
 int get_problem();
 void  get2_pt (float *,float *,float *,float*);
 void get_pt_slope (float *,float *,float *);
