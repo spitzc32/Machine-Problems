@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<math.h>
 
 int get_problem();
 void  get2_pt (float *,float *,float *,float*);
@@ -11,9 +12,11 @@ void display_pt_slope(float,float,float);
 void display_slope_intcpt(float,float);
 
 int main (){
-	int prob_no = get_problem();
+	
+	char cl;
 	float x1, y1, x2, y2, slope, yInt, counter = 1;
 	while(counter){
+	    int prob_no = get_problem();
 		switch (prob_no){
 			case 1: 
 				get2_pt (&x1, &y1, &x2, &y2);
@@ -23,11 +26,18 @@ int main (){
 				break;
 			case 2:
 				get_pt_slope(&x1, &y1,&slope);
-				intcpt_from_pt_slope(x1, y1,slope);
+				yInt = intcpt_from_pt_slope(x1, y1,slope);
 				display_pt_slope(x1, y1,slope);	
 				display_slope_intcpt(slope,yInt);
 				break;
+			default:
+			    break;
 		}
+		puts("Do another conversion (Y or N)=>");
+		scanf(" %c",&cl);
+		 
+		if(cl == 'N')
+		    counter = 0;
 	}
 } 
 int get_problem(){
@@ -59,18 +69,18 @@ void get_pt_slope (float *x1,float *y1,float *slope){
 }
 
 void slope_intcpt_from2_pt(float x1, float y1, float x2, float y2, float *slope,float *yInt){
-	*slope = ;
-	*yInt = ;
+	*slope = (y2-y1)/(x2-x1);
+	*yInt = y1 - *slope * x1;
 }
 
 float intcpt_from_pt_slope(float x1, float y1, float slope){
-	return ;
+	return y1 - slope*x1;
 }
 
 void display2_pt(float x1, float y1, float x2, float y2){
 	printf("\nTwo-point form \n");
 	printf("\t (%.2f - %.2f)\n",y2,y1);
-	printf("m = ---------------\n");
+	printf("m = ------------------------------\n");
 	printf("\t (%.2f - %.2f)\n", x2,x1);
 }
 
@@ -79,6 +89,8 @@ void display_pt_slope(float x1,float y1,float slope){
 	printf("y – %.2f = %.2f (x – %.2f)\n", y1,slope,x1);
 }
 
-void display_slope_intcpt(float slope, float yInt)
+void display_slope_intcpt(float slope, float yInt){
 	puts("\nSlope-intercept form \n");
-	(slope >= 0) ? printf("y = %.2fx + %.2f",slope,yInt) : printf("y = %.2fx - %.2f",slope,yInt)
+	(yInt >= 0) ? printf("y = %.2fx + %.2f\n",slope,yInt) : printf("y = %.2fx - %.2f\n",slope,fabs(yInt));
+}	
+	
