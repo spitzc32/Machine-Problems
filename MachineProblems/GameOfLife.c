@@ -1,9 +1,17 @@
+/*
+	created by: Spitzc32/Neet
+	date Modified: 10/18/19
+	
+	problem: Game of life
+	
+*/
 #include<stdio.h>
 #include<stdlib.h>
+
 int r,c,**b;
-void getBoard(int **);
-void initBoard(int**);
-int Xadd(int,int);
+void getBoard(int **); //setting up the initial board
+void initBoard(int**); // setting board to computing board to zero
+int Xadd(int,int); //Accumulating the 
 int Yadd(int,int);
 int AdjTo(int**,int,int);
 void Game(int**);
