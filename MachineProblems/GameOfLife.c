@@ -3,6 +3,7 @@
 	date Modified: 10/18/19
 	
 	problem: Game of life
+        Compiler:C11
 	
 */
 #include<stdio.h>
@@ -11,11 +12,11 @@
 int r,c,**b;
 void getBoard(int **); //setting up the initial board
 void initBoard(int**); // setting board to computing board to zero
-int Xadd(int,int); //Accumulating the 
-int Yadd(int,int);
-int AdjTo(int**,int,int);
-void Game(int**);
-void display(int**,int);
+int Xadd(int,int); //Accumulating the rows
+int Yadd(int,int); //Accumulating the columns
+int AdjTo(int**,int,int);// this is where the real game is counted 
+void Game(int**); // gives the condition whether alive or dead
+void display(int**,int);//Displays generation to generation 
 
 int main(){
 	
