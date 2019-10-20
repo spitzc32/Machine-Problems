@@ -16,7 +16,6 @@ int n,m;
 int random(); // returns a random value that the cockroach needs to walk on 
 int Cmoves(int[][m]); // checks if the roach walks on all the required tiles 
 int bugMovement(int,int*,int*); // updates bugs current pos
-void ArrInit(int[][m]); // initializes the array
 int InRoom(int,int); // creates a wall so the bug wont go out of bounds
 void Display(int[][m],int);
 
