@@ -10,14 +10,15 @@
     
     
 */
-int n,m,**p; //n= rows, m=columns, p = container array needed to be walked
+int n,m;
+ //n= rows, m=columns, p = container array needed to be walked
 
-int random(int,int); // returns a random value that the cockroach needs to walk on 
-int Cmoves(int**); // checks if the roach walks on all the required tiles 
+int random(); // returns a random value that the cockroach needs to walk on 
+int Cmoves(int[][m]); // checks if the roach walks on all the required tiles 
 int bugMovement(int,int*,int*); // updates bugs current pos
-void ArrInit(int**); // initializes the array
+void ArrInit(int[][m]); // initializes the array
 int InRoom(int,int); // creates a wall so the bug wont go out of bounds
-void Display(int**,int);
+void Display(int[][m],int);
 
 
 
@@ -25,7 +26,7 @@ void Display(int**,int);
 int main()
 {
     
-    int x,l,imv,jmv,counter=0;
+    int x,l,ibug,jbug,counter=0;
   
   puts("Enter the width of the room(between 2 & 40): ");
   scanf("%d", &n);
@@ -43,35 +44,36 @@ int main()
         scanf("%d", &m);
   }
   
-  p = calloc(n,sizeof *p);
+  puts("Enter the initial X position of the bug");
+  scanf("%d", &ibug);
+  puts("Enter the initial Y position of the bug");
+  scanf("%d", &jbug);
+  int p[n][m];
+  memset(p, 0, sizeof p);;
   
   
-  ibug = n/2;
-  jbug = m/2;
-  
-  
-  ArrInit(p);
-  
-  while((!Cmoves(p)) && (counter < 10000)){
+  while((!Cmoves(p)) && (counter < 50000)){
       do{
-          x = random(1,8);
+          x = random();
           
       }
+        
       while(!bugMovement(x,&ibug,&jbug));
       p[ibug][jbug]++;
       
       counter++;
   }
+  
   display(p,counter);
      
     return 0;
 }
 
-int random(int i, int j){
-    return rand() % (j-i+1) + i;
+int random(){
+    return rand() % 8;
 }
 
-int Cmoves(int **p){
+int Cmoves(int p[][m]){
     //returns true if cockroach walks at all tiles
     for(int i = 0;i<n;i++){
         for(int j=0;j<m;j++){
@@ -100,17 +102,6 @@ int bugMovement(int x ,int* ibug, int* jbug){
          
 }
 
-void ArrInit(int **p){
-    for(int i = 0; i < m; i++)
-       p[i] = (int *) calloc (m,sizeof(*p[i]));
-
-    for(int i = 0; i < n; i++){ 
-       for(int j = 0; j < m; j++){
-           p[i][j] =0;
-        }
-   }
-			
-}
 
 int InRoom(int ibug,int jbug){
     //Checking if the cockroach is out of bound or not (legal moves)
@@ -122,15 +113,17 @@ int InRoom(int ibug,int jbug){
     }         
 }
 
-void display(int **p,int counter){
+void display(int p[][m],int counter){
      
-     
+     puts("Final Count ofthe number of steps the bug made during random walk: \n");
      for(int i =0; i < n; i++){
          for(int j = 0; j < m;j++){
-               printf("p[%d],[%d] = %d \n",i,j, p[i][j]);}
+               printf(" %d", p[i][j]);}
+        printf("\n");
      }
      printf("Counted Number of steps: %d \n", counter);
      
 }
+
 
 
