@@ -37,9 +37,14 @@ int main(){
     
     
     for(int i=1;i<=gen;i++){
-	display(b,i);
-	Game(b);
-    }
+    	display(b,i);
+		Game(b);
+		printf("\nPress enter to continue...");
+		while(getch() != '\r');
+	}
+    printf("\nLast generation reached. Thank you for playing Game of Life!");
+    
+
     
     return 0;
 }
