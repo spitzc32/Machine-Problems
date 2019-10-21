@@ -64,6 +64,16 @@ void get2_pt (float *x1,float *y1,float *x2,float*y2){
 	scanf("%f%f", x1, y1);
 	puts("Enter the x-y coordinates of the second point separated by a space=>");
 	scanf("%f%f", x2, y2);
+	
+	//To avoid zero division 
+	while(*x2==*x1){
+		printf("\nX coordinates should not be the same, enter again:\n");
+			printf("\nEnter the x-y coordinates of the first point separated by a space => ");
+			scanf("%f%f", x1, y1);
+			printf("Enter the x-y coordinates of the second point separated by a space => ");
+			scanf("%f%f", x2, y2);
+	}
+
 }
 
 void get_pt_slope (float *x1,float *y1,float *slope){
