@@ -1,10 +1,10 @@
-# Machine-Problems-10-19-19-
+# Machine-Problems
 
-Compromises of 5 problems in relations with the lessons: 
+Compromises of the problems that were given as homework to practice skills in: 
 
-      -loops(for,while and do while)
-      -Memory Allocation(malloc,calloc)
-      -Functions(output and inut param)
+      -loops
+      -Memory Allocation
+      -Functions
       -Arrays
       -Pointers
 
