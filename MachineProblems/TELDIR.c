@@ -5,7 +5,9 @@ CREATED BY: SPITZC32
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
 #include <string.h>
+
 #define MAX_SIZE 100
 
 typedef struct {
@@ -39,10 +41,10 @@ int main()
     
     printf("\t\t\t\t\tINFORMATION\t\t\t\t\n");
     printf("|\tNAME\t\tADDRESS\t\tTELEPHONE\t|\n");
-    
+    printf("%d\n", del);
     for (int i=0;i<size+noOfUp-del;i++){
-        if (r[i].name == NULL){break;}
-        printf("|\t %s \t %s \t %s \t|\n",r [i].name,r[i].address,r[i].Telephone);
+        if (!isalnum(r[i].name[0])){break;}
+        printf("|\t %s \t %s \t %s \t|\n",r[i].name,r[i].address,r[i].Telephone);
         
     }
     
@@ -93,6 +95,7 @@ void update_records(Records * r){
     
     for (int i =size; i< size+noOfUp-del; i++){
         puts("ENTER CODE:");scanf(" %c", &code);
+
         if(code == 'I' || code == 'i'){
             fgets(r[i].name, MAX_SIZE, stdin);
             puts("name(last,first,middle)");fgets(r[i].name, MAX_SIZE, stdin);
@@ -107,7 +110,7 @@ void update_records(Records * r){
             puts("street address");fgets(address, MAX_SIZE, stdin);
             puts("phone number");fgets(Telephone, 10, stdin);
             delete(name, i, r);
-            del++;
+            ++del;
             i--;
             
         }
@@ -136,16 +139,3 @@ void delete(char * name, int i, Records * r){
     
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
