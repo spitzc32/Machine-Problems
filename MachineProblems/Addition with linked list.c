@@ -38,22 +38,17 @@ int main(){
 		? (num1[strlen(num1)-i] - 48) : 0;
 		n2 =  (num2[strlen(num2)-i] >= 48 && num2[strlen(num2)-i] < 59 && strlen(num2)-i >= 0) 
 		? (num2[strlen(num2)-i] - 48) : 0;
-		sum->num  = carry + (n1 + n2) ;
+		sum->num  =carry + (n1 + n2) ;
 		
 		if (i > 0){carry = (sum->num >= 10)? 1 : 0;}
+		
 		if (carry == 1){sum->num %= 10; }
-		carry = 0;
+		
 		sum->next = NULL;
 		if (i == 1){head = sum;}
 		else{tail->next = sum;}
 	
 		tail = sum; 
-	}
-	if (carry == 1){
-		sum->num = 1;
-		sum->next = sum;
-		tail = sum; 
-		
 	}
 	
 	
@@ -74,24 +69,18 @@ void printReverse(Node* head_ref, int n) {
    
         // For each node, print proper number 
         // of spaces before printing it 
-        for (i = 0; i < 2 * (n - j); i++) 
+        for (i = 0; i < (n - j); i++) 
             printf(" "); 
    
         // use of carriage return to move back 
-        // and p,rint. 
-        printf("%d\r", current->num); 
-   
+        // and print
+		printf("%d\r", current->num); 
+   		if (carry== 1){printf("%d\r",carry);}
         current = current->next; 
-        if (j == n){break;}
+        if (j == n){
+			
+			break;}
 		
         j++; 
     } 
 } 
-
-
-
-
-
-
-
-
