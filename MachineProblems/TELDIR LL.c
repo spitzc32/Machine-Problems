@@ -1,11 +1,7 @@
-/******************************************************************************
-
-Welcome to GDB Online.
-GDB online is an online compiler and debugger tool for C, C++, Python, PHP, Ruby, 
-C#, VB, Perl, Swift, Prolog, Javascript, Pascal, HTML, CSS, JS
-Code, Compile, Run and Debug online from anywhere in world.
-
-*******************************************************************************/
+/*
+    CREATED BY: SPITCZ32/ Neet
+    YAN NA PO UPDATED SORRY DUN SA NAGCOCOMPILE 
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -36,15 +32,14 @@ int main(){
     update_records();
     
     r = head;
-    
+    printf("\t\tINFORMATION\t\t\n");
+    printf("\tNAME\t\tADDRESS\t\tTELEPHONE\t\n");
     while (r != NULL){
-        puts(r->name);
-        puts(r->address);
-        puts(r->Telephone);
+        printf("\t%s\t\t%s\t\t%s\n",r->name,r->address,r->Telephone);
         r = r->next;
         
     }
-    
+    puts("\t______________________________________________\n");
 
 }
 
@@ -133,23 +128,13 @@ void update_records(){
             puts("ERROR INVALID CODE.");
             break;
         }
+        
         puts("Another Y/N?");
         scanf(" %c", &ans);
         if (ans != 'Y'){break;}
+        
         
     }
     
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
